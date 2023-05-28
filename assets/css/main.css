@@ -1,0 +1,101 @@
+.jumbotron{
+  background-image: url('/assets/img/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+section{
+  padding-top: 4rem;
+}
+#section-appointment{
+  padding-top: 0;
+}
+ 
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+h1, h2, h3, h4, h5, h6{
+
+  font-family: 'Rubik', sans-serif;
+}
+
+.social-container {
+  padding-bottom: 5%;
+}
+
+.social-icon {
+font-size: 100px;
+width: 100px;
+text-align: center;
+}
+
+
+#section-float-button .float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+  font-size:32px;
+	background-color:#073642;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 1px 1px 2px #999;
+	z-index:1000;
+	animation: bot-to-top 2s ease-out;
+}
+
+#section-float-button  ul{
+	position:fixed;
+	right:40px;
+	padding-bottom:20px;
+	bottom:80px;
+	z-index:100;
+}
+
+#section-float-button ul li{
+	
+	margin-bottom:10px;
+  background-color:#073642;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 1px 1px 2px #999;
+	width:60px;
+	height:60px;
+	display:block;
+}
+
+
+#section-float-button ul:hover{
+	visibility:visible!important;
+	opacity:1!important;
+}
+
+
+#section-float-button .my-float{
+	font-size:32px;
+	margin-top:10px;
+}
+
+#section-float-button span#menu-share + ul{
+  visibility: hidden;
+}
+
+#section-float-button span#menu-share:hover + ul{
+  visibility: visible;
+  animation: scale-in 0.5s;
+}
+
+
+@keyframes bot-to-top {
+    0%   {bottom:-40px}
+    50%  {bottom:40px}
+}
+
+@keyframes scale-in {
+    from {transform: scale(0);opacity: 0;}
+    to {transform: scale(1);opacity: 1;}
+}
