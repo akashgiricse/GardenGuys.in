@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Garden Maintenance Package Calculator</title>
+    <title>Garden Maintenance Package</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Garden Maintenance Package Calculator</h1>
+      <h1>Garden Maintenance Package</h1>
       <form id="packageCalculatorForm">
         <div class="form-row">
           <div class="form-group col-md-4">
@@ -172,29 +172,6 @@
 
       // Trigger the initial calculation on page load
       calculatePrice();
-
-      $(document).ready(function () {
-        // Function to update the styles of the total prices
-        function updateTotalStyles() {
-          // Make the discountedTotalPrice bold and green
-          $("#discountedTotalPrice").css({
-            "font-weight": "bold",
-            color: "green",
-          });
-
-          $("#effectiveCostPerVisit").css({
-            "font-weight": "bold",
-            color: "green",
-          });
-
-          // Make the actualTotalPrice faded
-          $("#actualTotalPrice").css("opacity", "0.5");
-          $("#realCostPerVisit").css("opacity", "0.5");
-        }
-
-        // Call the function on page load
-        updateTotalStyles();
-      });
     </script>
   </body>
 </html>
