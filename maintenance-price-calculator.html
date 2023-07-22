@@ -53,15 +53,23 @@
         </div>
       </form>
 
-      <h2>
-        Total:<span id="discountedTotalPrice"></span>
-        <s><span id="actualTotalPrice"></span></s>
-        <span id="totalDiscount"></span>
-      </h2>
-      <h2>
-        Cost per visit:<span id="effectiveCostPerVisit"></span>
-        <s><span id="realCostPerVisit"></span></s>
-      </h2>
+      <table class="table table-bordered">
+        <tr>
+          <th>Total:</th>
+          <td>
+            <span id="discountedTotalPrice" style="font-weight: bold; color: green;"></span>
+            <s><span id="actualTotalPrice" style="opacity: 0.5;"></span></s>
+            <span id="totalDiscount"></span>
+          </td>
+        </tr>
+        <tr>
+          <th>Cost per visit:</th>
+          <td>
+            <span id="effectiveCostPerVisit" style="font-weight: bold; color: green;"></span>
+            <s><span id="realCostPerVisit" style="opacity: 0.5;"></span></s>
+          </td>
+        </tr>
+      </table>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
