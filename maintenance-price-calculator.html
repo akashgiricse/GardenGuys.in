@@ -1,150 +1,182 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Garden Maintenance Package Calculator</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
     <div class="container">
-        <h1>Garden Maintenance Package Calculator</h1>
-        <form id="packageCalculatorForm">
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="durationOfVisit">Duration of Visit:</label>
-                    <select class="form-control" id="durationOfVisit" name="durationOfVisit">
-                        <option value="halfDay">Half day</option>
-                        <option value="fullDay">Full day</option>
-                    </select>
-                </div>
+      <h1>Garden Maintenance Package Calculator</h1>
+      <form id="packageCalculatorForm">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="durationOfVisit">Duration of Visit:</label>
+            <select
+              class="form-control"
+              id="durationOfVisit"
+              name="durationOfVisit"
+            >
+              <option value="halfDay">Half day</option>
+              <option value="fullDay">Full day</option>
+            </select>
+          </div>
 
-                <div class="form-group col-md-4">
-                    <label for="durationOfContract">Duration of Contract:</label>
-                    <select class="form-control" id="durationOfContract" name="durationOfContract">
-                        <option value="singleVisit">Single visit</option>
-                        <option value="threeMonths">3 months</option>
-                        <option value="sixMonths">6 months</option>
-                        <option value="twelveMonths">12 months</option>
-                    </select>
-                </div>
+          <div class="form-group col-md-4">
+            <label for="durationOfContract">Duration of Contract:</label>
+            <select
+              class="form-control"
+              id="durationOfContract"
+              name="durationOfContract"
+            >
+              <option value="singleVisit">Single visit</option>
+              <option value="threeMonths">3 months</option>
+              <option value="sixMonths">6 months</option>
+              <option value="twelveMonths">12 months</option>
+            </select>
+          </div>
 
-                <div class="form-group col-md-4">
-                    <label for="frequencyOfVisit">Frequency of Visit:</label>
-                    <select class="form-control" id="frequencyOfVisit" name="frequencyOfVisit">
-                        <option value="onceAMonth">Once a month</option>
-                        <option value="twiceAMonth">Twice a month</option>
-                        <option value="fourTimesAMonth">Four times a month</option>
-                    </select>
-                </div>
-            </div>
-        </form>
+          <div class="form-group col-md-4">
+            <label for="frequencyOfVisit">Frequency of Visit:</label>
+            <select
+              class="form-control"
+              id="frequencyOfVisit"
+              name="frequencyOfVisit"
+            >
+              <option value="onceAMonth">Once a month</option>
+              <option value="twiceAMonth">Twice a month</option>
+              <option value="fourTimesAMonth">Four times a month</option>
+            </select>
+          </div>
+        </div>
+      </form>
 
-        <h2>Total:<span id="discountedTotalPrice"></span>
-            <s><span id="actualTotalPrice"></span></s> 
-            <span id="totalDiscount"></span>
-        </h2>
+      <h2>
+        Total:<span id="discountedTotalPrice"></span>
+        <s><span id="actualTotalPrice"></span></s>
+        <span id="totalDiscount"></span>
+      </h2>
+      <h2>
+        Cost per visit:<span id="effectiveCostPerVisit"></span>
+        <s><span id="realCostPerVisit"></span></s>
+      </h2>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script >
-        function calculatePrice() {
-    var durationOfVisit = document.getElementById("durationOfVisit").value;
-    var frequencyOfVisit = document.getElementById("frequencyOfVisit");
-    var durationOfContract = document.getElementById("durationOfContract").value;
-    var actualPrice = 0;
+    <script>
+      function calculatePrice() {
+        var durationOfVisit = document.getElementById("durationOfVisit").value;
+        var frequencyOfVisit = document.getElementById("frequencyOfVisit");
+        var durationOfContract =
+          document.getElementById("durationOfContract").value;
+        var actualPrice = 0;
 
-    var freq = 1;
-    var duration = 1;
+        var freq = 1;
+        var duration = 1;
 
-    // Set actualPrice based on selected options
-    if (durationOfVisit === "halfDay") {
-        actualPrice = 699;
-    } else if (durationOfVisit === "fullDay") {
-        actualPrice = 999;
-    }
+        // Set actualPrice based on selected options
+        if (durationOfVisit === "halfDay") {
+          actualPrice = 699;
+        } else if (durationOfVisit === "fullDay") {
+          actualPrice = 999;
+        }
 
-    // Calculate the actual total price
-    var actualTotalPrice = actualPrice;
+        // Calculate the actual total price
+        var actualTotalPrice = actualPrice;
 
-    // Calculate the discounted total price
-    var discount = 0;
+        // Calculate the discounted total price
+        var discount = 0;
 
-    if (frequencyOfVisit.value === "onceAMonth") {
-        freq = 1;
+        if (frequencyOfVisit.value === "onceAMonth") {
+          freq = 1;
+        } else if (frequencyOfVisit.value === "twiceAMonth") {
+          freq = 2;
+        } else if (frequencyOfVisit.value === "fourTimesAMonth") {
+          freq = 4;
+        }
 
-    } else if (frequencyOfVisit.value === "twiceAMonth") {
-        freq = 2;
+        // Adjust discounted total price based on contract duration
+        if (durationOfContract === "threeMonths") {
+          duration = 3;
+          discount += 10;
+        } else if (durationOfContract === "sixMonths") {
+          duration = 6;
+          discount += 15;
+        } else if (durationOfContract === "twelveMonths") {
+          duration = 12;
+          discount += 30;
+        }
 
-    } else if (frequencyOfVisit.value === "fourTimesAMonth") {
-        freq = 4;
+        // Reset the "Frequency of Visit" options if "Single visit" is selected as the duration of contract
+        if (durationOfContract === "singleVisit") {
+          frequencyOfVisit.value = "onceAMonth"; // Set the value to "onceAMonth"
+          frequencyOfVisit.disabled = true; // Disable the "Frequency of Visit" options
 
-    }
+          document.getElementById("actualTotalPrice").style.display = "none";
+          document.getElementById("totalDiscount").style.display = "none";
 
-    // Adjust discounted total price based on contract duration
-    if (durationOfContract === "threeMonths") {
-        duration = 3;
-        discount += 10;
-    } else if (durationOfContract === "sixMonths") {
-        duration = 6;
-        discount += 15;
-    } else if (durationOfContract === "twelveMonths") {
-        duration = 12;
-        discount += 30;
-    }
+          freq = 1;
+          duration = 1;
+          discount = 0;
+        } else {
+          // Enable the "Frequency of Visit" options
+          frequencyOfVisit.disabled = false;
 
-    // Reset the "Frequency of Visit" options if "Single visit" is selected as the duration of contract
-    if (durationOfContract === "singleVisit") {
-        frequencyOfVisit.value = "onceAMonth"; // Set the value to "onceAMonth"
-        frequencyOfVisit.disabled = true; // Disable the "Frequency of Visit" options
+          document.getElementById("actualTotalPrice").style.display = "inline";
+          document.getElementById("totalDiscount").style.display = "inline";
+        }
 
-        document.getElementById("actualTotalPrice").style.display = "none";
-        document.getElementById("totalDiscount").style.display = "none";
+        actualTotalPrice = actualPrice * freq * duration;
 
-        freq = 1;
-        duration = 1;
-        discount = 0;
+        var discountedPrice =
+          actualTotalPrice - actualTotalPrice * (discount / 100);
+        var totalDiscount = actualTotalPrice - discountedPrice;
 
-    } else {
-        // Enable the "Frequency of Visit" options
-        frequencyOfVisit.disabled = false;
+        var effectiveCostPerVisit = Math.round(
+          discountedPrice / (freq * duration)
+        );
 
-        document.getElementById("actualTotalPrice").style.display = "inline";
-        document.getElementById("totalDiscount").style.display = "inline";
-    }
+        document.getElementById("discountedTotalPrice").textContent =
+          "₹ " + Math.round(discountedPrice);
+        document.getElementById("actualTotalPrice").textContent =
+          "₹ " + Math.round(actualTotalPrice);
+        document.getElementById("totalDiscount").textContent =
+          " (" + Math.round(discount) + "% saved)";
 
-    actualTotalPrice = actualPrice * freq * duration;
+        document.getElementById("effectiveCostPerVisit").textContent =
+          "₹ " + effectiveCostPerVisit;
+        document.getElementById("realCostPerVisit").textContent =
+          "₹ " + actualPrice;
+      }
 
-    var discountedPrice = actualTotalPrice - (actualTotalPrice * (discount / 100));
-    var totalDiscount = actualTotalPrice - discountedPrice;
+      // Automatically calculate and populate the total prices when the form is changed
+      var form = document.getElementById("packageCalculatorForm");
+      form.addEventListener("change", calculatePrice);
 
-    
-    document.getElementById("discountedTotalPrice").textContent = "₹ " + Math.round(discountedPrice);
-    document.getElementById("actualTotalPrice").textContent = "₹ " + Math.round(actualTotalPrice);
-    document.getElementById("totalDiscount").textContent = " (" + Math.round(discount) + "% saved)";
-}
+      // Trigger the initial calculation on page load
+      calculatePrice();
 
-// Automatically calculate and populate the total prices when the form is changed
-var form = document.getElementById("packageCalculatorForm");
-form.addEventListener("change", calculatePrice);
+      $(document).ready(function () {
+        // Function to update the styles of the total prices
+        function updateTotalStyles() {
+          // Make the discountedTotalPrice bold and green
+          $("#discountedTotalPrice").css({
+            "font-weight": "bold",
+            color: "green",
+          });
 
-// Trigger the initial calculation on page load
-calculatePrice();
+          // Make the actualTotalPrice faded
+          $("#actualTotalPrice").css("opacity", "0.5");
+          $("#realCostPerVisit").css("opacity", "0.5");
+        }
 
-$(document).ready(function() {
-    // Function to update the styles of the total prices
-    function updateTotalStyles() {
-        // Make the discountedTotalPrice bold and green
-        $("#discountedTotalPrice").css({"font-weight": "bold", "color": "green"});
-        
-        // Make the actualTotalPrice faded
-        $("#actualTotalPrice").css("opacity", "0.5");
-    }
-
-    // Call the function on page load
-    updateTotalStyles();
-});
-
+        // Call the function on page load
+        updateTotalStyles();
+      });
     </script>
-</body>
+  </body>
 </html>
