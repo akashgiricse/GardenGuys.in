@@ -1,3 +1,5 @@
+var DISCOUNTED_PRICE = 0;
+
 function calculatePrice() {
   var durationOfVisit = document.getElementById("durationOfVisit").value;
   var frequencyOfVisit = document.getElementById("frequencyOfVisit");
@@ -66,6 +68,7 @@ function calculatePrice() {
   actualTotalPrice = actualPrice * freq * duration;
 
   var discountedPrice = actualTotalPrice - actualTotalPrice * (discount / 100);
+  DISCOUNTED_PRICE = Math.round(discountedPrice);
   var totalDiscount = actualTotalPrice - discountedPrice;
 
   var effectiveCostPerVisit = Math.round(discountedPrice / (freq * duration));
@@ -88,3 +91,38 @@ form.addEventListener("change", calculatePrice);
 
 // Trigger the initial calculation on page load
 calculatePrice();
+
+// JavaScript code to handle the button click and display the popup
+
+$(document).ready(function () {
+  $("#hireGardenerBtn").click(function () {
+    // Get selected values from the form
+    const durationOfVisit = $("#durationOfVisit option:selected").text();
+    const durationOfContract = $("#durationOfContract option:selected").text();
+    const frequencyOfVisit = $("#frequencyOfVisit option:selected").text();
+
+    // Display the selected values in the popup and style them as green
+    $("#selectedDurationOfVisitText").html(
+      "Duration of Visit: <strong>" + durationOfVisit + "</strong>"
+    );
+    $("#selectedDurationOfContractText").html(
+      "Duration of Contract: <strong>" + durationOfContract + "</strong>"
+    );
+    $("#selectedFrequencyOfVisitText").html(
+      "Frequency of Visit: <strong>" + frequencyOfVisit + "</strong>"
+    );
+    $("#discountedTotalPriceModal").html(
+      "Total: <strong>" + DISCOUNTED_PRICE + "</strong>"
+    );
+
+    // Set hidden form values
+
+    $("#selectedDurationOfVisitTextHid").val(durationOfVisit);
+    $("#selectedDurationOfContractTextHid").val(durationOfContract);
+    $("#selectedFrequencyOfVisitTextHid").val(frequencyOfVisit);
+    $("#discountedTotalPriceModalHid").val(DISCOUNTED_PRICE);
+
+    // Show the popup
+    $("#confirmationModal").modal("show");
+  });
+});
