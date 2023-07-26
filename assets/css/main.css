@@ -103,3 +103,14 @@ text-align: center;
     from {transform: scale(0);opacity: 0;}
     to {transform: scale(1);opacity: 1;}
 }
+
+#packageCalculatorForm {
+    border: 1px solid #073642;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  #packageCalculatorForm label {
+    font-weight: bold;
+  }

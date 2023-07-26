@@ -85,6 +85,9 @@
         </li>
 
         <li class="nav-item">
+          <a href="#section-hire-gardener" class="nav-link">Hire a Gardener</a>
+        </li>
+        <li class="nav-item">
           <a href="#section-reviews" class="nav-link">What others say</a>
         </li>
         <li class="nav-item">
@@ -110,225 +113,192 @@
     </div>
   </section>
 
-  <section id="hire-gardener">
-    <div class="container">
-      <h1 class="text-center my-4">Garden Maintenance Package</h1>
-      <form id="packageCalculatorForm">
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <label for="durationOfVisit">Duration of Visit:</label>
-            <select
-              class="form-control"
-              id="durationOfVisit"
-              name="durationOfVisit"
-            >
-              <option value="halfDay">Half day</option>
-              <option value="fullDay">Full day</option>
-            </select>
-          </div>
+  <div class="container">
 
-          <div class="form-group col-md-4">
-            <label for="durationOfContract">Duration of Contract:</label>
-            <select
-              class="form-control"
-              id="durationOfContract"
-              name="durationOfContract"
-            >
-              <option value="singleVisit">Single visit</option>
-              <option value="threeMonths">3 months</option>
-              <option value="sixMonths">6 months</option>
-              <option value="twelveMonths">12 months</option>
-            </select>
-          </div>
-
-          <div class="form-group col-md-4">
-            <label for="frequencyOfVisit">Frequency of Visit:</label>
-            <select
-              class="form-control"
-              id="frequencyOfVisit"
-              name="frequencyOfVisit"
-            >
-              <option value="onceAMonth">Once a month</option>
-              <option value="twiceAMonth">Twice a month</option>
-              <option value="fourTimesAMonth">Four times a month</option>
-            </select>
-          </div>
-        </div>
-      </form>
-
-      <table class="table table-bordered">
-        <tr>
-          <th>Total:</th>
-          <td>
-            <span
-              id="discountedTotalPrice"
-              style="font-weight: bold; color: green"
-            ></span>
-            <s><span id="actualTotalPrice" style="opacity: 0.5"></span></s>
-            <span id="totalDiscount"></span>
-          </td>
-        </tr>
-        <tr>
-          <th>Cost per visit:</th>
-          <td>
-            <span
-              id="effectiveCostPerVisit"
-              style="font-weight: bold; color: green"
-            ></span>
-            <s><span id="realCostPerVisit" style="opacity: 0.5"></span></s>
-          </td>
-        </tr>
-      </table>
-
-      <!-- Wide card component -->
-      <div class="card">
-        <div class="card-header">
-          🌿🌱 Our Garden Maintenance Package Include 🌱🌿
-        </div>
-        <div class="card-body">
-          <div class="card-content">
-            <ul>
-              <li>
-                <i class="far fa-leaf"></i>
-                <strong>Plant Health and Vigor:</strong> 🌿 Premium quality
-                fertilization with Garden Guys vermicompost for thriving,
-                healthy plants. 🍃
-              </li>
-              <li>
-                <i class="fas fa-cut"></i>
-                <strong>Immaculate Pruning and Trimming:</strong> ✂️ Precision
-                pruning to enhance growth and beauty. 🌳
-              </li>
-              <li>
-                <i class="fas fa-bug"></i>
-                <strong>Pest-Free Paradise:</strong> 🐜🚫 Expert pest control to
-                protect your garden. 🌼
-              </li>
-              <li>
-                <i class="fas fa-wind"></i>
-                <strong>Revitalizing Aeration:</strong> 💨 Soil aeration for
-                better root growth and nutrient absorption. 🌱
-              </li>
-              <li>
-                <i class="fas fa-seedling"></i>
-                <strong>Beautifully Weed-Free:</strong> 🌿 Weed control for a
-                pristine garden. 🚫🌿
-              </li>
-            </ul>
-            <p>
-              🌟 As a special bonus, we provide 5 kg of our signature product,
-              Garden Guys vermicompost, completely free of cost as a key
-              component of our Plant Health and Vigor service. With its rich
-              nutrients and beneficial microorganisms, our vermicompost ensures
-              that your plants receive the best care possible. 🌟
-            </p>
-          </div>
-        </div>
-      </div>
-      <!-- End of wide card component -->
-
-      <div class="text-center">
-        <!-- Wrap the button inside a div with text-center class -->
-        <!-- "Hire Gardener" button -->
-        <button type="button" class="btn btn-primary mt-3" id="hireGardenerBtn">
-          Hire Gardener
-        </button>
-      </div>
-      <!-- End of the div with text-center class -->
-
-      <!-- Bootstrap Modal (Popup) -->
-      <div
-        class="modal fade text-white"
-        id="confirmationModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="confirmationModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="confirmationModalLabel">
-                Schedule a visit
-              </h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
+    <section id="section-hire-gardener">
+      <div class="container ">
+        <h2 class="display-4 text-center text-dark">Hire a Gardener</h2>
+        <form id="packageCalculatorForm" class="mt-5">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="durationOfVisit"><b>Duration of Visit:</b></label>
+              <select class="form-control" id="durationOfVisit" name="durationOfVisit">
+                <option value="halfDay">Half day</option>
+                <option value="fullDay">Full day</option>
+              </select>
             </div>
-            <div class="modal-body">
-              <p>You have selected the following options:</p>
-              <ul>
-                <li><span id="selectedDurationOfVisitText"></span></li>
-                <li><span id="selectedDurationOfContractText"></span></li>
-                <li><span id="selectedFrequencyOfVisitText"></span></li>
-                <li><span id="discountedTotalPriceModal"></span></li>
-              </ul>
 
-              <!-- Form inside the modal -->
-              <form
-                id="hireGardenerForm"
-                action="https://formspree.io/f/mqkoonje"
-                method="POST"
-              >
-                <div class="form-group">
-                  <label for="name"
-                    >Name<span class="text-danger">*</span></label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="name"
-                    name="name"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="phone"
-                    >Phone Number<span class="text-danger">*</span></label
-                  >
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="phone"
-                    name="phone"
-                    required
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    name="email"
-                  />
-                </div>
+            <div class="form-group col-md-4">
+              <label for="durationOfContract"><b>Duration of Contract:</b></label>
+              <select class="form-control" id="durationOfContract" name="durationOfContract">
+                <option value="singleVisit">Single visit</option>
+                <option value="threeMonths">3 months</option>
+                <option value="sixMonths">6 months</option>
+                <option value="twelveMonths">12 months</option>
+              </select>
+            </div>
 
-                <!-- take other input as well to send via form-->
+            <div class="form-group col-md-4">
+              <label for="frequencyOfVisit"><b>Frequency of Visit:</b></label>
+              <select class="form-control" id="frequencyOfVisit" name="frequencyOfVisit">
+                <option value="onceAMonth">Once a month</option>
+                <option value="twiceAMonth">Twice a month</option>
+                <option value="fourTimesAMonth">Four times a month</option>
+              </select>
+            </div>
+          </div>
 
-                <input type="hidden" class="form-control"  id="selectedDurationOfVisitTextHid" name="Duration of Visit" />
-                <input type="hidden" class="form-control" id="selectedDurationOfContractTextHid" name="Duration Of Contract" />
-                <input type="hidden" class="form-control" id="selectedFrequencyOfVisitTextHid" name="Frequency Of Visit" />
-                <input type="hidden" class="form-control" id="discountedTotalPriceModalHid" name="Total Price" />
+          <!-- Use Bootstrap List Group -->
+          <ul class="list-group list-group-flush mt-3">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Total:
+              <span>
+                <span id="discountedTotalPrice" style="font-weight: bold; color: green"></span>
+                <s><span id="actualTotalPrice" style="opacity: 0.5"></span></s>
+                <span id="totalDiscount" class="badge badge-dark" style="font-size: small;"></span>
+              </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Cost per visit:
+              <span>
+                <span id="effectiveCostPerVisit" style="font-weight: bold; color: green"></span>
+                <s><span id="realCostPerVisit" style="opacity: 0.5"></span></s>
+              </span>
+            </li>
+          </ul>
+
+          <div class="text-center">
+            <!-- Wrap the button inside a div with text-center class -->
+            <!-- "Hire Gardener" button -->
+            <button type="button" class="btn btn-lg btn-dark mt-3" id="hireGardenerBtn"><i class="fa fa-leaf"
+                aria-hidden="true"></i>
+              Hire a Gardener
+            </button>
+          </div>
+        </form>
 
 
-                <button type="submit" class="btn btn-primary">
+        <table class="table table-bordered border-warning text-dark">
+          <thead class="thead-dark text-center">
+            <tr>
+              <th colspan="2">
+                <b style="font-size: large;">🌿🌱 Our Garden Maintenance Package Includes 🌱🌿</b>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <i class="fas fa-leaf"></i>
+                <strong>Plant Health and Vigor</strong>
+              </td>
+              <td>🌿 Premium quality fertilization with Garden Guys vermicompost for thriving, healthy plants. 🍃</td>
+            </tr>
+            <tr>
+              <td>
+                <i class="fas fa-cut"></i>
+                <strong>Immaculate Pruning and Trimming</strong>
+              </td>
+              <td>✂️ Precision pruning to enhance growth and beauty. 🌳</td>
+            </tr>
+            <tr>
+              <td>
+                <i class="fas fa-bug"></i>
+                <strong>Pest-Free Paradise</strong>
+              </td>
+              <td>🐜🚫 Expert pest control to protect your garden. 🌼</td>
+            </tr>
+            <tr>
+              <td>
+                <i class="fas fa-wind"></i>
+                <strong>Revitalizing Aeration</strong>
+              </td>
+              <td>💨 Soil aeration for better root growth and nutrient absorption. 🌱</td>
+            </tr>
+            <tr>
+              <td>
+                <i class="fas fa-seedling"></i>
+                <strong>Beautifully Weed-Free</strong>
+              </td>
+              <td>🌿 Weed control for a pristine garden. 🚫🌿</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">
+                🌟 Special bonus: Get <span class="badge badge-dark" style="font-size: small;">5 kg of Garden Guys
+                  vermicompost</span>, our signature product, absolutely free! It's vital for your plants' health,
+                providing rich nutrients and beneficial microorganisms. 🌟
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+
+
+
+        <!-- End of the div with text-center class -->
+
+        <!-- Bootstrap Modal (Popup) -->
+        <!-- Modal -->
+        <div class="modal fade text-white" id="confirmationModal" tabindex="-1" role="dialog"
+          aria-labelledby="confirmationModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="confirmationModalLabel">
                   Schedule a visit
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
                 </button>
+              </div>
+              <div class="modal-body">
+                <!-- Content inside the modal -->
+                <p>You have selected the following options:</p>
+                <ul>
+                  <li><span id="selectedDurationOfVisitText"></span></li>
+                  <li><span id="selectedDurationOfContractText"></span></li>
+                  <li><span id="selectedFrequencyOfVisitText"></span></li>
+                  <li><span id="discountedTotalPriceModal"></span></li>
+                </ul>
+
+                <!-- Form inside the modal -->
+                <form id="hireGardenerForm" action="https://formspree.io/f/mqkoonje" method="POST">
+                  <div class="form-group">
+                    <label for="name">Name<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="name" name="name" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Phone Number<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="phone" name="phone" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" />
+                  </div>
+
+                  <!-- take other input as well to send via form-->
+
+                  <input type="hidden" class="form-control" id="selectedDurationOfVisitTextHid"
+                    name="Duration of Visit" />
+                  <input type="hidden" class="form-control" id="selectedDurationOfContractTextHid"
+                    name="Duration Of Contract" />
+                  <input type="hidden" class="form-control" id="selectedFrequencyOfVisitTextHid"
+                    name="Frequency Of Visit" />
+                  <input type="hidden" class="form-control" id="discountedTotalPriceModalHid" name="Total Price" />
+
+              </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <button type="submit" class="btn btn-light mt-3">
+                  Schedule your visit
+                </button>
+              </div>
               </form>
             </div>
           </div>
         </div>
       </div>
-    </div> 
-  </section>
-
-  <div class="container">
+    </section>
 
     <!-- Desctiption -->
     <section id="section-description">
