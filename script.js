@@ -78,7 +78,7 @@ function calculatePrice() {
   document.getElementById("actualTotalPrice").textContent =
     "₹ " + Math.round(actualTotalPrice);
   document.getElementById("totalDiscount").textContent =
-    " (" + Math.round(discount) + "% saved)";
+    "✨ " + Math.round(discount) + "% saved";
 
   document.getElementById("effectiveCostPerVisit").textContent =
     "₹ " + effectiveCostPerVisit;
